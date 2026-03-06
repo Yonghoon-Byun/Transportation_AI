@@ -1,0 +1,78 @@
+# 경험식 계수 설정 (설계분야별)
+# PDF 기획서 + 프롬프트 기반
+
+friction_angle_from_n:
+  meyerhof_1956:
+    description: "Meyerhof(1956) 경험식"
+    formula: "φ = 28 + N/5 (N ≤ 10), φ = 30 + N/10 (10 < N ≤ 30)"
+    soil_type: ["sand", "gravel"]
+    reference: "Meyerhof, G.G. (1956)"
+  peck_1974:
+    description: "Peck et al.(1974) 경험식"
+    formula: "φ = 28.5 + 12.2 * log(N)"
+    soil_type: ["sand"]
+    reference: "Peck, R.B., Hanson, W.E., Thornburn, T.H. (1974)"
+  dunham_1954:
+    description: "Dunham(1954) 경험식"
+    formula: "φ = sqrt(12N) + 15"
+    soil_type: ["sand"]
+    reference: "Dunham, J.W. (1954)"
+
+undrained_shear_strength:
+  terzaghi_peck:
+    description: "Terzaghi & Peck 경험식"
+    formula: "Su = N/8 (kPa)"
+    soil_type: ["clay"]
+    reference: "Terzaghi, K. and Peck, R.B."
+
+elastic_modulus_from_n:
+  bowles_sand:
+    description: "Bowles 사질토 경험식"
+    formula: "E = 500 * (N + 15) (kPa)"
+    soil_type: ["sand"]
+    reference: "Bowles, J.E."
+  bowles_clay:
+    description: "Bowles 점성토 경험식"
+    formula: "E = 320 * (N + 15) (kPa)"
+    soil_type: ["clay"]
+    reference: "Bowles, J.E."
+
+unit_weight_from_n:
+  description: "N치 기반 단위중량 추정"
+  ranges:
+    - n_range: [0, 4]
+      gamma_t: 16.0
+      gamma_sat: 18.0
+      state: "매우 느슨"
+    - n_range: [4, 10]
+      gamma_t: 17.0
+      gamma_sat: 19.0
+      state: "느슨"
+    - n_range: [10, 30]
+      gamma_t: 18.5
+      gamma_sat: 20.0
+      state: "보통"
+    - n_range: [30, 50]
+      gamma_t: 20.0
+      gamma_sat: 21.5
+      state: "조밀"
+
+design_parameter_selection:
+  description: "대표값 선정 방법"
+  methods:
+    normal:
+      formula: "평균값"
+      confidence: "50%"
+      note: "파괴확률이 낮은 설계"
+    recommended:
+      formula: "평균 - 1σ"
+      confidence: "84%"
+      note: "일반 설계 (권장)"
+    conservative:
+      formula: "평균 - 2σ"
+      confidence: "97.7%"
+      note: "중요 구조물"
+    high_cov:
+      formula: "평균 - 1.5σ"
+      condition: "COV > 30%"
+      note: "보수적 값 적용"

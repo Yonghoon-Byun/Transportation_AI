@@ -1,10 +1,19 @@
-"""설계지반정수 산정 모듈 - 경험식 및 상관관계를 활용한 지반정수 추정."""
+"""설계지반정수 산정 모듈 - 경험식 및 상관관계를 활용한 지반정수 추정.
+
+PDF 기획서 기반 설계분야별 핵심 입력변수:
+- 비탈면(토사): γt, γsat, c', φ', G.W.L
+- 비탈면(암반): qu, RQD, RMR, SMR
+- 기초: N치, c, φ, E
+- 흙막이: γ, c, φ, Es, kh
+- 터널: E, ν, σc, RQD, TCR
+- 연약지반: Cc, Cr, Pc, Cv, e₀
+"""
 
 from __future__ import annotations
 
 from typing import Any
 
-from ..models.schemas import DesignParameter, LabTestResult, MechanicalTestResult
+from ..models.schemas import DesignParameter, LabTestResult, MechanicalProperties
 
 
 class ParameterEstimator:
@@ -38,7 +47,7 @@ class ParameterEstimator:
             uscs: USCS 분류 기호
 
         Returns:
-            추정 단위중량 (kN/m³)
+            추정 단위중량 (kN/m3)
         """
         pass
 
@@ -86,20 +95,20 @@ class ParameterEstimator:
 
     def build_design_parameters(
         self,
+        design_field: str,
         layer_name: str,
         stats: dict[str, float],
-        lab_results: list[LabTestResult] | None = None,
-        mechanical_results: list[MechanicalTestResult] | None = None,
+        lab_result: LabTestResult | None = None,
     ) -> DesignParameter:
-        """통계량 및 시험 결과를 종합하여 DesignParameter를 생성한다.
+        """통계량 및 시험 결과를 종합하여 설계분야별 DesignParameter를 생성한다.
 
         Args:
+            design_field: 설계 적용 분야 ("slope_soil", "foundation" 등)
             layer_name: 지층명
             stats: 지층별 N값 통계량 딕셔너리
-            lab_results: 해당 지층 실내시험 결과 목록
-            mechanical_results: 해당 지층 역학시험 결과 목록
+            lab_result: 해당 지층 실내시험 결과
 
         Returns:
-            산정된 DesignParameter 객체
+            산정된 DesignParameter 객체 (source/basis 포함)
         """
         pass

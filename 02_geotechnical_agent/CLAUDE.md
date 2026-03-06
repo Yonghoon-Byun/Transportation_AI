@@ -48,35 +48,40 @@ PDF 형식 주상도에서 지반 데이터를 구조적으로 추출.
 
 | 추출 항목 | 설명 |
 |---|---|
-| 지층명 | 점토, 모래, 자갈, 풍화토, 연암, 경암 등 |
+| 지층명 | 매립토, 퇴적토, 풍화토, 풍화암, 연암 등 (토질분류) |
 | 심도 (Depth) | 지층 상단/하단 심도 (m) |
-| N치 (N-Value) | 표준관입시험(SPT) 타격 횟수 |
+| N치 (N-Value) | 표준관입시험(SPT) 타격 횟수 (정수형, 1m 또는 1.5m 간격) |
 | 지하수위 | 지하수면 심도 (m) |
-| 암질분류 | RQD (암질지수, %), TCR (코어회수율, %) |
+| 암질분류 | RQD (암질지수, %), TCR (코어회수율, %) — 암반층(풍화암 이하)에서만 |
 | 시추공 번호 | BH-1, BH-2 등 |
 
-### 2. 데이터 통합 모듈 (Data Matcher) — `src/matcher/`
-시추공 번호 + 심도를 기준으로 물리시험/역학시험 데이터를 매칭.
+### 2. 데이터 통합 모듈 (Data Matcher) — `src/tools/data_matcher.py`
+시추공 번호(Hole No.) + 채취심도(Depth) 기준으로 물리시험/역학시험 데이터를 매칭.
+매칭 허용 오차: ±0.5m.
 
 | 데이터 유형 | 항목 |
 |---|---|
-| 물리시험 | Wn (함수비), Gs (비중), LL/PI (액성한계/소성지수), 입도분포 |
+| 물리시험 | Wn (함수비), Gs (비중), LL/PL/PI (액성한계/소성한계/소성지수), 입도분포 |
 | 역학시험 | qu (일축압축강도), c (점착력), φ (내부마찰각) |
-| 압밀시험 | Cc (압축지수), Cv (압밀계수), Pc (선행압밀하중) |
+| 압밀시험 | Cc (압축지수), Cr (재압축지수), Cv (압밀계수), Pc (선행압밀하중), e₀ (초기간극비) |
 
-### 3. 지반정수 산정/그래프 모듈 — `src/analyzer/`
-공학적 분석 알고리즘 및 자동 그래프 생성.
+### 3. 지반정수 산정/그래프 모듈 — `src/tools/parameter_estimator.py` + `src/reporter/graph_generator.py`
+설계분야별 공학적 분석 알고리즘 및 자동 그래프 생성.
 
 - 연약지반 압밀 곡선 (e-log P 그래프)
 - 전단강도 포락선 (Mohr-Coulomb)
-- USCS/AASHTO 분류 자동 판정
+- USCS/AASHTO 분류 자동 판정 (`src/classifier/`)
 - 설계 지반정수 산정 (c, φ, N값 통계처리)
+- N치 분포 그래프 + 지층별 평균±표준편차
+- 소성도 차트 (Plasticity Chart)
+- 입도 분포 곡선
 
-### 4. 이상치 탐지 모듈 — `src/analyzer/outlier.py`
+### 4. 이상치 탐지 모듈 — `src/classifier/outlier_detector.py`
 공학적 범위를 벗어난 시험 데이터 자동 필터링 및 경고 생성.
 
 - N치 범위 검증 (지층별 기대 범위)
 - 물성치 상관관계 검증 (Wn vs LL, qu vs c 등)
+- 심도 단조증가 검증, 층 두께 합산 검증
 - 경고 레벨: WARNING / ERROR / CRITICAL
 
 ---
@@ -86,52 +91,53 @@ PDF 형식 주상도에서 지반 데이터를 구조적으로 추출.
 ```
 02_geotechnical_agent/
 ├── CLAUDE.md                   # 프로젝트 지침 (현재 파일)
-├── README.md
-├── pyproject.toml              # 의존성 관리
-├── .env.example                # API 키 템플릿
+├── PLAN.md                     # 상세 개발 계획
+├── requirements.txt            # 의존성 관리
 │
 ├── src/
-│   ├── parser/                 # 주상도 해석 모듈
-│   │   ├── borehole_parser.py  # PDF 주상도 파싱
-│   │   ├── ocr_engine.py       # OCR 처리
-│   │   └── table_extractor.py  # 표 데이터 추출
-│   ├── matcher/                # 데이터 통합 모듈
-│   │   └── data_matcher.py     # 시추공+심도 기준 매칭
-│   ├── analyzer/               # 지반정수 산정/이상치 탐지
-│   │   ├── geotechnical_calc.py
-│   │   ├── graph_generator.py
-│   │   └── outlier.py
-│   ├── classifier/             # 지반 분류 엔진 (USCS/AASHTO)
-│   │   └── soil_classifier.py
-│   ├── agent/                  # AI Agent 코어 (Claude API)
-│   │   ├── agent.py
-│   │   └── tools.py
-│   ├── reporter/               # 성과품 생성
-│   │   ├── excel_reporter.py   # openpyxl 기반 엑셀 출력
-│   │   └── report_generator.py # Jinja2/python-docx 기반
-│   └── tools/                  # Agent 도구 함수
+│   ├── models/                 # 데이터 스키마 (dataclass)
+│   │   └── schemas.py          # BoreholeLog, SoilLayer, SPTRecord,
+│   │                           # PhysicalProperties, MechanicalProperties,
+│   │                           # ConsolidationResult, LabTestResult,
+│   │                           # DesignParameter, AnomalyWarning
+│   ├── parser/                 # Module 1: 주상도 해석 모듈
+│   │   ├── pdf_extractor.py    # PDF 구조 분석 (텍스트/표/이미지)
+│   │   ├── borehole_log_parser.py  # 주상도 파싱 → BoreholeLog
+│   │   └── lab_test_parser.py  # 실내시험 성과표 파싱
+│   ├── classifier/             # 지반 분류 + 이상치 탐지
+│   │   ├── soil_classifier.py  # USCS/AASHTO 분류 엔진
+│   │   ├── rock_classifier.py  # RMR/SMR 암반 분류
+│   │   └── outlier_detector.py # 통계적+공학적 이상치 탐지
+│   ├── tools/                  # Module 2: 데이터 통합 + 정수 산정
+│   │   ├── data_matcher.py     # Hole No.+Depth 기준 매칭 (±0.5m)
+│   │   ├── parameter_estimator.py  # 설계분야별 지반정수 산정
+│   │   └── statistics.py       # 지층별 기술통계 산출
+│   ├── agent/                  # Module 3: AI Agent 코어 (Claude API)
+│   │   ├── geotechnical_agent.py   # Tool-use Agent
+│   │   └── pipeline.py         # 분석 파이프라인 오케스트레이션
+│   └── reporter/               # Module 4: 성과품 생성
+│       ├── excel_reporter.py   # openpyxl 기반 엑셀 출력
+│       ├── graph_generator.py  # matplotlib 그래프 (6종)
+│       └── report_builder.py   # python-docx 기반 보고서
 │
 ├── prompts/                    # 프롬프트 템플릿 (분리 관리 필수)
-│   ├── borehole_extraction.txt
-│   ├── soil_classification.txt
-│   └── outlier_detection.txt
+│   ├── system_prompt.py        # Agent 역할/전문성 정의
+│   ├── borehole_analysis.py    # 주상도 추출 프롬프트
+│   ├── data_integration.py     # 데이터 매칭/통계 프롬프트
+│   ├── outlier_detection.py    # 이상치 탐지 프롬프트
+│   ├── parameter_estimation.py # 지반정수 산정 프롬프트
+│   └── report_generation.py    # 보고서 작성 프롬프트
+│
+├── config/                     # 설정 파일
+│   ├── design_standards.yaml   # 적용 기준 (KDS, AASHTO 등)
+│   ├── column_aliases.yaml     # 업체별 컬럼명 정규화 매핑
+│   ├── engineering_limits.yaml # 지반정수 공학적 허용 범위
+│   └── empirical_formulas.yaml # 경험식 계수 (설계분야별)
 │
 ├── tests/                      # pytest 테스트
-│   ├── test_parser.py
-│   ├── test_matcher.py
-│   ├── test_analyzer.py
-│   └── fixtures/               # 테스트용 샘플 PDF/데이터
-│
-├── data/
-│   ├── raw/                    # 원천 PDF 보고서
-│   ├── processed/              # 정형화된 중간 데이터
-│   └── output/                 # 최종 성과품 (엑셀, 그래프)
-│
-├── config/
-│   └── settings.py             # 환경 설정, 임계값 정의
-│
-└── notebooks/                  # 탐색적 분석, 프로토타이핑
-    └── exploration.ipynb
+├── data/                       # 데이터 (gitignore)
+├── docs/                       # 기획서 PDF
+└── notebooks/                  # 탐색적 분석
 ```
 
 ---

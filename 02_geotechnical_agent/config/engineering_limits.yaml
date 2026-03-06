@@ -1,0 +1,74 @@
+# 지반정수 공학적 허용 범위 (이상치 탐지 기준)
+# PDF 기획서 + 프롬프트 기반 기준값
+
+n_value:
+  매립층:
+    normal: [2, 20]
+    review: [21, 30]
+    level: "warning"
+  충적층_모래:
+    normal: [4, 40]
+    review: [41, 50]
+    level: "warning"
+    note: "> 50은 암반 또는 호박돌 의심"
+  충적층_점토:
+    normal: [2, 15]
+    review: [16, 20]
+    level: "warning"
+  풍화토:
+    normal: [10, 50]
+    level: "warning"
+  풍화암:
+    normal: [50, 999]
+    note: "50/n 이상, 관입불능"
+    level: "info"
+
+unit_weight:  # kN/m3
+  gamma_t:
+    normal: [14.0, 22.0]
+    level: "warning"
+  gamma_sat:
+    normal: [17.0, 24.0]
+    level: "warning"
+
+shear_strength:
+  friction_angle:  # 도
+    토사:
+      normal: [0, 45]
+      level: "warning"
+    암반:
+      normal: [25, 60]
+      level: "warning"
+  cohesion:  # kPa
+    normal: [0, 500]
+    level: "error"
+    note: "음수 불가"
+
+qu:  # 일축압축강도 (kPa)
+  극연약점토:
+    normal: [0, 25]
+  연약점토:
+    normal: [25, 100]
+  보통점토:
+    normal: [100, 400]
+  견고점토:
+    normal: [400, 800]
+
+consolidation:
+  cc:
+    normal: [0.05, 2.0]
+    level: "warning"
+  e0:
+    normal: [0.3, 4.0]
+    level: "warning"
+  cv:  # cm2/sec
+    normal: [0.0001, 0.1]
+    level: "warning"
+
+rqd:  # %
+  normal: [0, 100]
+  level: "error"
+
+tcr:  # %
+  normal: [0, 100]
+  level: "error"

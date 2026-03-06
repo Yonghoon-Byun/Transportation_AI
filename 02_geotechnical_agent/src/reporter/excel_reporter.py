@@ -1,11 +1,21 @@
-"""엑셀 성과품 생성 모듈 - 지반조사 분석 결과를 Excel 파일로 출력."""
+"""엑셀 성과품 생성 모듈 - 지반조사 분석 결과를 Excel 파일로 출력.
+
+PDF 기획서 출력 요구사항:
+- 정형화된 엑셀 데이터
+- 지층 요약표, 지반정수 요약표, 이상치 경고 목록
+"""
 
 from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
 
-from ..models.schemas import BoreholeLog, DesignParameter, LabTestResult
+from ..models.schemas import (
+    AnomalyWarning,
+    BoreholeLog,
+    DesignParameter,
+    LabTestResult,
+)
 
 
 class ExcelReporter:
@@ -67,12 +77,30 @@ class ExcelReporter:
         """
         pass
 
+    def write_anomaly_report(
+        self,
+        warnings: list[AnomalyWarning],
+        output_path: str | Path,
+    ) -> Path:
+        """이상치 경고 목록을 Excel로 출력한다.
+
+        Args:
+            warnings: AnomalyWarning 데이터 목록
+            output_path: 출력 Excel 파일 경로
+
+        Returns:
+            생성된 Excel 파일 경로
+        """
+        pass
+
     def write_full_report(
         self,
         all_data: dict[str, Any],
         output_path: str | Path,
     ) -> Path:
         """전체 분석 결과를 다중 시트 Excel로 출력한다.
+
+        시트 구성: 주상도 요약, 실내시험, 설계정수, 이상치 목록
 
         Args:
             all_data: 전체 분석 결과 딕셔너리
