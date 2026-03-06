@@ -1,0 +1,54 @@
+# Data files
+data/
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.h5
+*.hdf5
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+*.secret
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Geospatial data
+*.tif
+*.tiff
+*.shp
+*.dbf
+*.shx
+*.prj
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+
+# OMC
+.omc/

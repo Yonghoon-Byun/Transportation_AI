@@ -1,0 +1,43 @@
+# Core numerical computing
+numpy>=1.24
+scipy>=1.11
+
+# Geospatial and GIS data processing
+shapely>=2.0
+geopandas>=0.14
+rasterio>=1.3
+fiona>=1.9
+pyproj>=3.6
+
+# Optimization algorithms
+pymoo>=0.6          # Multi-objective optimization
+deap>=1.4           # Genetic algorithms
+
+# Visualization
+matplotlib>=3.7
+plotly>=5.18
+pyvista>=0.43       # 3D visualization
+
+# Data handling
+pandas>=2.0
+pyyaml>=6.0
+
+# Configuration and validation
+pydantic>=2.0
+
+# Testing
+pytest>=7.4
+pytest-cov>=4.1
+
+# Data sources and download
+elevation>=1.1      # SRTM DEM auto-download
+osmnx>=1.9          # OpenStreetMap data download
+python-dotenv>=1.0  # Environment variable management
+
+# Notebook environment
+jupyter>=1.0
+ipykernel>=6.25
+
+# Utilities
+tqdm>=4.66          # Progress bars
+loguru>=0.7         # Logging

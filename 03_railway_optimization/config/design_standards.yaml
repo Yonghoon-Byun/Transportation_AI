@@ -1,0 +1,768 @@
+# =============================================================================
+# 철도설계기준 파라미터 (Korean Railway Design Standards)
+# =============================================================================
+# 참고 규정:
+#   - 철도의 건설기준에 관한 규정 (국토교통부고시, 이하 "건설기준규정")
+#   - KDS 47 00 00 철도 설계기준 (한국건설기준코드)
+#   - KR C-02060 선로 설계기준 (한국철도시설공단, 이하 "KR Code")
+#   - 도시철도 설계기준 (국토교통부고시)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. 철도 종류별 설계기준
+# -----------------------------------------------------------------------------
+railway_types:
+
+  # ---------- 고속철도 (High-Speed Railway) ----------
+  high_speed:
+    description: "고속철도 - 설계속도 200km/h 초과"
+    # 근거: 건설기준규정 제3조, KDS 47 30 15
+
+    design_speed:
+      value: 350          # km/h
+      unit: "km/h"
+      note: "KTX 기준 영업최고속도 300km/h, 설계속도 350km/h"
+      # 근거: 건설기준규정 별표1, KR C-02060 2.1.1
+
+    minimum_curve_radius:
+      main_track:
+        value: 7000       # m
+        unit: "m"
+        note: "V=350km/h 기준, 캔트 180mm 적용 시 최소값"
+        # 근거: KDS 47 30 15 4.1, 건설기준규정 제6조
+        # TODO: 선형설계 시 실제 캔트 적용값에 따라 재산정 필요
+      sub_track:          # 부본선/측선
+        value: 2500       # m
+        unit: "m"
+        # 근거: KR C-02060 Table 2.2
+
+    maximum_gradient:
+      main_track:
+        value: 25         # ‰
+        unit: "‰"
+        note: "연속구간 기준, 가속력 보정구간 35‰까지 완화 가능"
+        # 근거: 건설기준규정 제9조, KDS 47 30 15 4.3
+      side_track:         # 측선
+        value: 15         # ‰
+        unit: "‰"
+        # 근거: 건설기준규정 제9조
+
+    minimum_transition_curve_length:
+      value: 130          # m
+      unit: "m"
+      note: "V=350km/h, R=7000m 기준 클로소이드 적용"
+      # 근거: KDS 47 30 15 4.2, KR C-02060 3.2.1
+      # TODO: 실제 캔트 변화율(55mm/s) 적용하여 검토 필요
+
+    minimum_vertical_curve_radius:
+      crest:              # 볼록 종곡선
+        value: 25000      # m
+        unit: "m"
+        # 근거: KDS 47 30 15 4.4
+      sag:                # 오목 종곡선
+        value: 15000      # m
+        unit: "m"
+        # 근거: KDS 47 30 15 4.4
+
+    cant:
+      maximum:
+        value: 180        # mm
+        unit: "mm"
+        # 근거: 건설기준규정 제7조, KDS 47 30 15 4.1
+      cant_deficiency_max:  # 최대 부족캔트
+        value: 80         # mm
+        unit: "mm"
+        # 근거: KDS 47 30 15 4.1
+        # TODO: 속도 향상 구간 조건부 130mm까지 완화 적용 여부 검토
+
+    gauge:
+      value: 1435         # mm (표준궤간)
+      unit: "mm"
+      # 근거: 건설기준규정 제4조
+
+    structure_gauge:       # 건축한계
+      width:
+        value: 4.6        # m (궤도 중심으로부터 좌우)
+        unit: "m"
+        # 근거: KR C-02060 부록A, KDS 47 30 00
+        # TODO: 터널 내부 건축한계 별도 적용 필요
+      height:
+        value: 6.4        # m (레일면 상부)
+        unit: "m"
+        # 근거: KR C-02060 부록A
+
+
+  # ---------- 일반철도 (Conventional Railway) ----------
+  conventional:
+    description: "일반철도 - 설계속도 200km/h 이하"
+    # 근거: 건설기준규정 제3조, KDS 47 30 10
+
+    design_speed:
+      value: 200          # km/h (최고등급 기준)
+      unit: "km/h"
+      note: "설계속도 등급: 70/90/120/150/200km/h"
+      # 근거: 건설기준규정 별표1
+
+    minimum_curve_radius:
+      main_track:
+        # 설계속도별 최소 곡선반경 (단위: m)
+        by_speed:
+          v70:  400       # 근거: 건설기준규정 별표2
+          v90:  600
+          v120: 1200
+          v150: 1600
+          v200: 3000
+        unit: "m"
+        # 근거: KDS 47 30 10 4.1, 건설기준규정 제6조
+      sub_track:
+        value: 150        # m (부본선/측선 공통)
+        unit: "m"
+        # 근거: 건설기준규정 제6조 별표2
+
+    maximum_gradient:
+      main_track:
+        by_speed:
+          v70:  25        # ‰
+          v90:  25
+          v120: 25
+          v150: 15
+          v200: 15
+        unit: "‰"
+        # 근거: 건설기준규정 제9조 별표4
+      side_track:
+        value: 15         # ‰
+        unit: "‰"
+        # 근거: 건설기준규정 제9조
+
+    minimum_transition_curve_length:
+      by_speed:
+        v70:  30          # m
+        v90:  50
+        v120: 70
+        v150: 90
+        v200: 110
+      unit: "m"
+      # 근거: KDS 47 30 10 4.2, KR C-02060 3.2.1
+
+    minimum_vertical_curve_radius:
+      crest:
+        by_speed:
+          v70:  2000      # m
+          v90:  4000
+          v120: 7000
+          v150: 12000
+          v200: 18000
+        unit: "m"
+        # 근거: KDS 47 30 10 4.4
+      sag:
+        by_speed:
+          v70:  1500      # m
+          v90:  2500
+          v120: 4000
+          v150: 7000
+          v200: 10000
+        unit: "m"
+        # 근거: KDS 47 30 10 4.4
+
+    cant:
+      maximum:
+        value: 160        # mm
+        unit: "mm"
+        # 근거: 건설기준규정 제7조
+      cant_deficiency_max:
+        value: 100        # mm
+        unit: "mm"
+        # 근거: 건설기준규정 제7조, KDS 47 30 10 4.1
+
+    gauge:
+      value: 1435         # mm (표준궤간)
+      unit: "mm"
+      # 근거: 건설기준규정 제4조
+
+    structure_gauge:
+      width:
+        value: 4.3        # m
+        unit: "m"
+        # 근거: KDS 47 30 00 건축한계 일반철도 기준
+      height:
+        value: 6.0        # m
+        unit: "m"
+        # 근거: KDS 47 30 00
+
+
+  # ---------- 도시철도 (Urban Railway / Metro) ----------
+  urban:
+    description: "도시철도 - 지하철, 경전철 포함"
+    # 근거: 도시철도 건설기준에 관한 규정, KDS 47 30 20
+
+    design_speed:
+      heavy_rail:         # 중전철 (지하철)
+        value: 110        # km/h
+        unit: "km/h"
+        # 근거: 도시철도 설계기준 2.1
+      light_rail:         # 경전철 (LRT)
+        value: 80         # km/h
+        unit: "km/h"
+        # 근거: 도시철도 설계기준 2.1
+
+    minimum_curve_radius:
+      main_track:
+        heavy_rail:
+          value: 200      # m
+          unit: "m"
+          note: "지하 본선 기준, 차량기지 내 60m까지 허용"
+          # 근거: 도시철도 설계기준, KDS 47 30 20 4.1
+          # TODO: 경량전철 차량별 최소 곡선반경 별도 확인 필요
+        light_rail:
+          value: 60       # m
+          unit: "m"
+          # 근거: 도시철도 설계기준 4.1
+      sub_track:
+        value: 100        # m
+        unit: "m"
+        # 근거: 도시철도 설계기준
+
+    maximum_gradient:
+      main_track:
+        heavy_rail:
+          value: 35       # ‰
+          unit: "‰"
+          # 근거: 도시철도 설계기준, KDS 47 30 20 4.3
+        light_rail:
+          value: 60       # ‰  (급구배 노선 적용)
+          unit: "‰"
+          # 근거: 도시철도 설계기준 4.3
+          # TODO: LRT 차종별 최대 구배 재확인 필요
+      side_track:
+        value: 10         # ‰
+        unit: "‰"
+
+    minimum_transition_curve_length:
+      heavy_rail:
+        value: 30         # m
+        unit: "m"
+        # 근거: KDS 47 30 20 4.2
+      light_rail:
+        value: 20         # m
+        unit: "m"
+        # 근거: 도시철도 설계기준
+
+    minimum_vertical_curve_radius:
+      crest:
+        heavy_rail:
+          value: 3000     # m
+          unit: "m"
+          # 근거: KDS 47 30 20 4.4
+        light_rail:
+          value: 1000     # m
+          unit: "m"
+      sag:
+        heavy_rail:
+          value: 2000     # m
+          unit: "m"
+          # 근거: KDS 47 30 20 4.4
+        light_rail:
+          value: 800      # m
+          unit: "m"
+
+    cant:
+      maximum:
+        value: 105        # mm
+        unit: "mm"
+        # 근거: 도시철도 설계기준
+      cant_deficiency_max:
+        value: 80         # mm
+        unit: "mm"
+        # 근거: 도시철도 설계기준
+
+    gauge:
+      heavy_rail:
+        value: 1435       # mm (표준궤간)
+        unit: "mm"
+        # 근거: 건설기준규정 제4조
+      light_rail:
+        value: 1435       # mm (표준궤간 기본, 노선별 상이)
+        unit: "mm"
+        note: "경전철 차종에 따라 1000mm, 1067mm 등 상이"
+        # TODO: 사업별 차량 제원 확인 필요
+
+    structure_gauge:
+      width:
+        heavy_rail:
+          value: 4.2      # m
+          unit: "m"
+          # 근거: 도시철도 설계기준 건축한계
+      height:
+        heavy_rail:
+          value: 5.5      # m
+          unit: "m"
+          # 근거: 도시철도 설계기준 건축한계
+
+
+# -----------------------------------------------------------------------------
+# 2. 구조물 설계기준
+# -----------------------------------------------------------------------------
+structures:
+
+  tunnel:
+    description: "철도 터널 설계기준"
+    # 근거: KDS 27 (터널설계기준), KR C-08080
+
+    minimum_cover_depth:
+      urban:
+        value: 1.0        # D (터널 직경 배수)
+        unit: "D"
+        note: "연약지반 등 지반조건에 따라 증가"
+        # 근거: KDS 27 90 00, KR C-08080
+        # TODO: 도심 천층 구간 최소 토피고 지반조건별 세부 기준 확인 필요
+      mountain:
+        value: 0.5        # D
+        unit: "D"
+        # 근거: KDS 27 90 00
+    minimum_cover_depth_absolute:
+      value: 10           # m (절대 최솟값)
+      unit: "m"
+      note: "지반 조건 무관 절대 최소 토피고"
+      # TODO: 국내 실적 및 기준 재검토 필요
+
+    minimum_clearance_area:
+      # 건축한계 + 여유폭 고려한 내공 단면
+      high_speed_double_track:
+        value: 107        # m²
+        unit: "m²"
+        note: "고속철도 복선, 공기압 기준 검토 필요"
+        # 근거: KR C-08080, 고속철도 터널 설계기준
+        # TODO: 열차 공기압 피로 검토 반영 필요
+      conventional_double_track:
+        value: 57         # m²
+        unit: "m²"
+        # 근거: KR C-08080
+      urban_double_track:
+        value: 42         # m²
+        unit: "m²"
+        # 근거: 도시철도 터널 설계기준
+        # TODO: 차량 제원 및 설비 설치 공간에 따라 조정 필요
+
+    portal_protection_slope:
+      value: 1.0          # H:V
+      unit: "H:V"
+      # 근거: KDS 27 90 00
+
+  bridge:
+    description: "철도 교량 설계기준"
+    # 근거: KDS 24 (교량설계기준), KR C-08030
+
+    maximum_span:
+      prestressed_concrete:
+        value: 50         # m
+        unit: "m"
+        # 근거: KR C-08030, 일반적인 PSC 거더 경간
+        # TODO: 구조 검토에 따라 증가 가능, 표준설계 적용 기준 확인
+      steel:
+        value: 100        # m
+        unit: "m"
+        note: "강박스 거더 기준, 특수교량 제외"
+        # 근거: KR C-08030
+      special_bridge:     # 장대교량 (사장교, 현수교 등)
+        value: 9999       # m (제한 없음, 별도 검토)
+        unit: "m"
+        note: "별도 설계 및 허가 필요"
+
+    maximum_gradient:
+      value: 25           # ‰
+      unit: "‰"
+      note: "고속철도 교량 15‰ 권장"
+      # 근거: KR C-08030, 건설기준규정 준용
+      # TODO: 교량 상부 신축이음 영향 검토 필요
+
+    minimum_freeboard:    # 최소 여유고 (계획홍수위 상부)
+      general:
+        value: 0.6        # m
+        unit: "m"
+        # 근거: 하천설계기준, KR C-08030
+      major_river:
+        value: 1.2        # m
+        unit: "m"
+        # 근거: 하천설계기준
+
+    skew_angle_limit:     # 사교각 제한
+      value: 60           # degrees (최대 사각)
+      unit: "degrees"
+      # 근거: KR C-08030
+      # TODO: 표준설계 적용 가능 사각 범위 재확인
+
+  cut_and_cover:          # 개착 구조물
+    description: "개착식 지하구조물 설계기준"
+    # 근거: KDS 21 (흙막이설계기준), KR C-08080
+
+    maximum_excavation_depth:
+      value: 40           # m
+      unit: "m"
+      note: "흙막이 공법별 상이, 일반적인 최대 깊이"
+      # 근거: KDS 21 90 00
+      # TODO: 지반 조건 및 지하수위에 따른 공법 선정 기준 보완 필요
+
+    minimum_slab_thickness:
+      top_slab:
+        value: 0.4        # m
+        unit: "m"
+        # 근거: 철근콘크리트 설계기준, 실적 기준
+      side_wall:
+        value: 0.5        # m
+        unit: "m"
+      bottom_slab:
+        value: 0.5        # m
+        unit: "m"
+
+    dewatering_required_depth:  # 지하수위 이하 굴착 시 배수 처리 기준
+      value: 1.0          # m (지하수위 이하)
+      unit: "m"
+      # 근거: KDS 21 90 00
+
+
+# -----------------------------------------------------------------------------
+# 3. 이격거리 기준
+# -----------------------------------------------------------------------------
+setback_distances:
+  description: "철도 노선 계획 시 주요 시설물 이격거리 기준"
+  # 근거: 철도안전법, 소음·진동관리법, 문화재보호법, 환경영향평가법
+
+  noise_sensitive_facilities:
+    # 근거: 소음·진동관리법, 환경영향평가서 작성 기준
+    school:
+      description: "학교(유·초·중·고·대학교)"
+      setback:
+        high_speed:
+          value: 200      # m
+          unit: "m"
+          # 근거: 소음 65dB(A) 이하 기준 추정 이격거리
+          # TODO: 방음벽 등 저감시설 설치 시 완화 가능, 실측 소음예측 검토 필요
+        conventional:
+          value: 150      # m
+          unit: "m"
+        urban:
+          value: 100      # m
+          unit: "m"
+      noise_limit_db: 65  # dB(A), 주간 기준
+      # 근거: 소음·진동관리법 시행규칙 별표8
+
+    hospital:
+      description: "병원, 요양원"
+      setback:
+        high_speed:
+          value: 200      # m
+          unit: "m"
+          # TODO: 소음예측 및 방음시설 계획에 따라 조정
+        conventional:
+          value: 150      # m
+          unit: "m"
+        urban:
+          value: 100      # m
+          unit: "m"
+      noise_limit_db: 60  # dB(A), 주간 기준
+      # 근거: 소음·진동관리법 시행규칙 별표8
+
+  residential_area:
+    description: "주거지역"
+    setback:
+      high_speed:
+        value: 100        # m
+        unit: "m"
+        # 근거: 소음 70dB(A) 이하 기준, 방음벽 설치 조건
+        # TODO: 지형 및 방음시설에 따른 실측 이격거리 검토 필요
+      conventional:
+        value: 80         # m
+        unit: "m"
+      urban:
+        value: 50         # m
+        unit: "m"
+    noise_limit_db: 70    # dB(A), 주간 기준
+    # 근거: 소음·진동관리법 시행규칙 별표8
+
+  cultural_heritage:
+    description: "문화재 보호구역"
+    # 근거: 문화재보호법 제13조, 문화재청 고시
+    setback:
+      national_treasure:  # 국보, 보물
+        value: 100        # m
+        unit: "m"
+        note: "문화재청 현상변경 허가 기준 (통상 500m 이내 심의)"
+        # TODO: 실제 문화재별 현상변경허용기준 구역 확인 필요 (관보 고시)
+      historic_site:      # 사적
+        value: 200        # m
+        unit: "m"
+        # TODO: 사적 현상변경허용기준 개별 확인 필요
+      natural_monument:   # 천연기념물
+        value: 100        # m
+        unit: "m"
+    review_required_distance: 500  # m 이내 문화재청 협의 의무
+    # 근거: 문화재보호법 제13조
+
+  water_source:
+    description: "상수원 보호구역"
+    # 근거: 수도법 제7조
+    setback:
+      value: 300          # m
+      unit: "m"
+      note: "보호구역 경계로부터 이격, 오염 방지 대책 필요"
+      # TODO: 상수원보호구역 통과 시 환경부 협의 기준 별도 확인
+
+  military_facility:
+    description: "군사시설"
+    # 근거: 군사기지 및 군사시설 보호법
+    setback:
+      value: 500          # m (통제보호구역 기준)
+      unit: "m"
+      note: "군사시설 보호구역 유형에 따라 상이, 군부대 협의 필요"
+      # TODO: 군사시설 보호구역 유형별 (통제/제한) 이격 기준 재확인
+
+
+# -----------------------------------------------------------------------------
+# 4. 비용 단가 (개략 공사비, 원/m, 2024년 기준 추정)
+# -----------------------------------------------------------------------------
+unit_costs:
+  description: "선형 최적화 목적함수용 개략 공사비 단가 (원/m)"
+  # 주의: 아래 단가는 타당성 조사 수준 개략값으로, 실시설계 시 재산정 필요
+  # 근거: 철도사업 예비타당성조사 사례, KDI 기준비용, 최근 낙찰 실적 참고
+  # TODO: 물가 변동 반영 및 최근 실적 기반 단가 업데이트 필요
+
+  earthwork:
+    fill:                 # 성토
+      value: 150000       # 원/m (연장 1m당, 폭 고려 단면 기준)
+      unit: "KRW/m"
+      note: "흙 성토 기준, 암버럭 성토 시 증가"
+      # TODO: 재료원 거리, 다짐 조건별 단가 세분화 필요
+    cut:                  # 절토
+      soil:
+        value: 200000     # 원/m
+        unit: "KRW/m"
+        note: "토사 절토 기준"
+      soft_rock:          # 연암
+        value: 400000     # 원/m
+        unit: "KRW/m"
+      hard_rock:          # 경암
+        value: 700000     # 원/m
+        unit: "KRW/m"
+      # 근거: KDI 철도 예비타당성 기준비용, 최근 실적 참조
+      # TODO: 발파·기계굴착 공법별, 지역별 단가 차이 반영 필요
+
+  bridge:
+    prestressed_concrete:
+      value: 3500000      # 원/m (복선 기준)
+      unit: "KRW/m"
+      note: "PSC I거더 복선 기준, 경간 40m 내외"
+      # TODO: 경간, 교고, 기초 형식별 단가 세분화 필요
+    steel_box:
+      value: 6000000      # 원/m (복선 기준)
+      unit: "KRW/m"
+      note: "강박스 거더 복선 기준"
+    special_bridge:       # 장대교량 (사장교 등)
+      value: 15000000     # 원/m (복선 기준)
+      unit: "KRW/m"
+      # TODO: 교량 형식 및 경간에 따라 크게 변동, 별도 견적 필요
+    # 근거: 철도공사 발주 실적, 예비타당성 사례 분석
+
+  tunnel:
+    natm:                 # NATM (New Austrian Tunnelling Method)
+      single_track:
+        value: 8000000    # 원/m
+        unit: "KRW/m"
+        note: "단선 NATM 기준, 지반 조건 보통"
+      double_track:
+        value: 12000000   # 원/m
+        unit: "KRW/m"
+        note: "복선 NATM 기준, 지반 조건 보통"
+      # 근거: 최근 철도터널 낙찰 실적, KDI 기준비용
+      # TODO: 지반 등급별 (I~V) 단가 보정 계수 적용 필요
+    tbm:                  # TBM (Tunnel Boring Machine)
+      single_track:
+        value: 10000000   # 원/m
+        unit: "KRW/m"
+        note: "쉴드 TBM 단선 기준"
+      double_track:
+        value: 15000000   # 원/m
+        unit: "KRW/m"
+      # TODO: TBM 장비 임대/구매, 세그먼트 제작비 포함 여부 확인 필요
+    cut_and_cover:        # 개착식
+      value: 6000000      # 원/m
+      unit: "KRW/m"
+      note: "복선 개착 기준, 흙막이 포함"
+      # 근거: 도시철도 실적
+      # TODO: 굴착 깊이, 지하수위, 흙막이 공법별 단가 보정 필요
+
+  land_compensation:      # 용지보상비
+    # 근거: 표준지공시지가 및 보상선례, 지역별 공시지가 반영
+    # TODO: 사업 추진 시점 공시지가 및 보상사례 적용 필수
+    urban:                # 도시지역
+      value: 50000000     # 원/m (복선 폭 8m 기준)
+      unit: "KRW/m"
+      note: "수도권 도심 기준, 지역별 편차 매우 큼"
+      # TODO: 실제 노선 통과 지역별 공시지가 조회 필요
+    agricultural:         # 농지
+      value: 5000000      # 원/m
+      unit: "KRW/m"
+      note: "농업진흥지역 외 기준"
+      # TODO: 농업진흥지역 지정 여부에 따라 단가 상이
+    forest:               # 임야
+      value: 2000000      # 원/m
+      unit: "KRW/m"
+      note: "보전산지 제외 기준"
+      # TODO: 보전산지, 준보전산지 구분 적용 필요
+
+
+# -----------------------------------------------------------------------------
+# 5. 환경 제약
+# -----------------------------------------------------------------------------
+environmental_constraints:
+  description: "환경영향평가 및 보호구역 통과 제한 기준"
+  # 근거: 환경영향평가법, 자연환경보전법, 국토의 계획 및 이용에 관한 법률
+
+  environmental_impact_assessment:
+    description: "환경영향평가 대상 기준"
+    # 근거: 환경영향평가법 시행령 별표3
+    railway_length_threshold:
+      urban:
+        value: 4          # km 이상
+        unit: "km"
+        note: "도시지역 또는 면적 25만m² 이상"
+        # 근거: 환경영향평가법 시행령 별표3 철도 항목
+      non_urban:
+        value: 10         # km 이상
+        unit: "km"
+        note: "비도시지역 신설 철도"
+        # 근거: 환경영향평가법 시행령 별표3
+    required_studies:
+      - "소음·진동 영향 예측"
+      - "생태계 조사 (동·식물상)"
+      - "지형·지질 조사"
+      - "수환경 영향 조사"
+      - "경관 영향 분석"
+      - "토지이용 변화 분석"
+      - "사회·경제 영향 분석"
+
+  protected_areas:
+    description: "보호구역 유형별 통과 제한"
+
+    national_park:
+      description: "국립공원"
+      # 근거: 자연공원법 제23조
+      restriction: "원칙적 통과 불가, 공원위원회 심의 필요"
+      allowed: false
+      exception: "불가피 시 환경부 장관 허가 및 별도 심의"
+      # TODO: 국립공원 경유 불가피 시 협의 절차 및 기간 반영 필요
+
+    provincial_park:
+      description: "도립공원, 군립공원"
+      restriction: "통과 최소화, 환경부·지자체 협의 필요"
+      allowed: "conditional"
+      # TODO: 도립공원 유형별 행위허가 기준 확인 필요
+
+    wetland_protection:
+      description: "습지보호지역"
+      # 근거: 습지보전법 제8조
+      restriction: "통과 금지, 람사르 습지 포함"
+      allowed: false
+
+    wildlife_protection:
+      description: "야생생물 보호구역"
+      # 근거: 야생생물 보호 및 관리에 관한 법률 제27조
+      restriction: "통과 최소화, 생태통로 설치 의무"
+      allowed: "conditional"
+      mitigation:
+        - "생태통로 설치 (폭 최소 20m 이상)"
+        - "방음·방진 시설"
+        - "조명 차단"
+
+    greenbelts:
+      description: "개발제한구역 (그린벨트)"
+      # 근거: 개발제한구역의 지정 및 관리에 관한 특별조치법
+      restriction: "통과 가능, 국토부 장관 허가 필요"
+      allowed: "conditional"
+      # TODO: 개발제한구역 훼손 면적 최소화 원칙 적용 필요
+
+    water_source_protection:
+      description: "상수원보호구역"
+      # 근거: 수도법 제7조
+      restriction: "통과 원칙적 불가, 환경부 협의 필요"
+      allowed: "conditional"
+      mitigation:
+        - "방수 방호 구조물 설치"
+        - "터널 통과 검토"
+        - "오염 방지 대책 수립"
+
+    military_zone:
+      description: "군사시설보호구역"
+      # 근거: 군사기지 및 군사시설 보호법
+      restriction: "통제보호구역 통과 시 국방부 협의 필수"
+      allowed: "conditional"
+      review_period_months: 6  # 협의 소요 기간 (월)
+      # TODO: 군사시설 유형별 협의 기관 및 절차 확인 필요
+
+    agricultural_promotion_zone:
+      description: "농업진흥지역"
+      # 근거: 농지법 제28조
+      restriction: "통과 가능, 농림부 협의 필요"
+      allowed: "conditional"
+      mitigation:
+        - "대체농지 조성"
+        - "농업기반시설 보호"
+
+  noise_vibration_limits:
+    description: "철도 소음·진동 기준"
+    # 근거: 소음·진동관리법 시행규칙 별표8 (철도소음 기준)
+    railway_noise_standard:
+      residential:
+        daytime:          # 06:00~22:00
+          value: 70       # dB(A)
+          unit: "dB(A)"
+        nighttime:        # 22:00~06:00
+          value: 65       # dB(A)
+          unit: "dB(A)"
+        # 근거: 소음·진동관리법 시행규칙 별표8
+      school_hospital:
+        daytime:
+          value: 65       # dB(A)
+          unit: "dB(A)"
+        nighttime:
+          value: 60       # dB(A)
+          unit: "dB(A)"
+    vibration_standard:
+      residential:
+        daytime:
+          value: 65       # dB(V)
+          unit: "dB(V)"
+        nighttime:
+          value: 60       # dB(V)
+          unit: "dB(V)"
+        # 근거: 소음·진동관리법 시행규칙 별표8
+      # TODO: 진동 기준 고속철도 별도 기준 적용 여부 확인 필요
+
+
+# -----------------------------------------------------------------------------
+# 6. 최적화 파라미터 (알고리즘 내부 설정)
+# -----------------------------------------------------------------------------
+optimization:
+  description: "선형 최적화 알고리즘 파라미터 설정"
+
+  objective_weights:
+    description: "목적함수 가중치 (합계 1.0)"
+    construction_cost: 0.50    # 공사비
+    land_compensation: 0.25    # 용지보상비
+    environmental_impact: 0.15 # 환경영향 (정성적 점수화)
+    operational_efficiency: 0.10 # 운영효율 (구배, 곡선 등)
+    # TODO: 사업별 정책 우선순위에 따라 가중치 조정 필요
+
+  constraint_penalties:
+    description: "제약조건 위반 시 패널티 (목적함수 가중치)"
+    protected_area_violation: 1000000  # 보호구역 통과 시 대형 패널티
+    design_standard_violation: 500000  # 설계기준 위반
+    setback_violation: 100000          # 이격거리 부족
+    # TODO: 패널티 스케일링 및 연속 패널티 함수 설계 필요
+
+  algorithm:
+    # TODO: 알고리즘 선택 및 파라미터 튜닝 필요
+    primary: "genetic_algorithm"       # 유전 알고리즘
+    fallback: "simulated_annealing"    # 시뮬레이티드 어닐링
+    max_iterations: 10000
+    population_size: 100               # GA 개체군 크기
+    convergence_tolerance: 0.001       # 수렴 기준
