@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "mcp__plugin_oh-my-claudecode_t__python_repl"
+      "mcp__plugin_oh-my-claudecode_t__python_repl",
+      "Bash(mkdir -p \"L:/home/onghoon_yun/projects/transportation_ai/Transportation_AI-1/.omc/plans\")",
+      "Bash(\"L:/home/onghoon_yun/projects/transportation_ai/Transportation_AI-1/.omc/ralplan-state.json\")",
+      "WebSearch",
+      "Bash(python3:*)",
+      "Bash(pip install:*)",
+      "Bash(git config:*)"
     ]
   }
 }
