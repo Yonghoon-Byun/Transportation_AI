@@ -1,0 +1,616 @@
+[
+  {
+    "model": "Gemini 2.5 Flash",
+    "elapsed_sec": 237.4,
+    "parsed_json": null,
+    "success": false
+  },
+  {
+    "model": "Gemini 2.5 Pro",
+    "elapsed_sec": 76.8,
+    "parsed_json": {
+      "basic_info": {
+        "borehole_id": "NTB-24",
+        "project_name": "수도권광역급행철도 B노선 건설사업(용산-상봉) 제4공구",
+        "x_coord": 556508.6,
+        "y_coord": 1948566.76,
+        "ground_elevation": 70.0,
+        "total_depth": 72.5,
+        "groundwater_level": 13.2,
+        "drill_date": "2023-08-31",
+        "drill_method": "수세식 시추",
+        "drill_diameter": "NX"
+      },
+      "layers": [
+        {
+          "layer_name": "매립층",
+          "soil_classification": "SM",
+          "depth_from": 0.0,
+          "depth_to": 2.0,
+          "thickness": 2.0,
+          "color": "암갈색",
+          "description": "심도 : 0.00 ~ 2.00 m\n- 실트질 모래\n- 암갈색\n- 습윤\n심도 1.0~2.0m: 지장물 확인 인력터파기"
+        },
+        {
+          "layer_name": "풍화토",
+          "soil_classification": "SM",
+          "depth_from": 2.0,
+          "depth_to": 13.0,
+          "thickness": 11.0,
+          "color": "황갈색",
+          "description": "심도 : 2.00 ~ 13.00 m\n- 실트질 모래\n- 황갈색\n- 습윤상태\n- 매우조밀"
+        },
+        {
+          "layer_name": "풍화암",
+          "soil_classification": "WR",
+          "depth_from": 13.0,
+          "depth_to": 22.0,
+          "thickness": 9.0,
+          "color": "황갈색",
+          "description": "심도 : 13.00 ~ 22.00 m\n- 암편함유 실트질모래 자갈 및 모래섞인 암편, 실트질 모래로 구성됨\n- 황갈색\n- 매우조밀"
+        },
+        {
+          "layer_name": "경암층",
+          "soil_classification": "HR",
+          "depth_from": 22.0,
+          "depth_to": 72.5,
+          "thickness": 50.5,
+          "color": "암회색",
+          "description": "심도 22.00 ~ 70.00 m\n- 편마암질 암석\n- 암회색\n- 편리발달-신선\n- 강도-강함\n- 심한균열-보통균열\n* 22.0-23.0m: 1set 절리\n* 23.0-25.0m: 2set절리 파쇄대 혼재 코어 총상\n* 25.0-26.0m: 1set절리\n* 26.0-28.0m: 2set 절리+Random 파쇄대혼재 코어 총상\n* 28.0-28.5m: 파쇄대\n* 28.0-31.0m: oss\n* 31.0-31.8m: 1set절리+Random 파쇄대혼재 코어 총상\n* 31.8-31.8m: 파쇄 및 core loss\n* 31.0-34.0m: 1set 절리 파쇄/가장\n* 34.0-37.0m: 1set 절리 10, 30, 70 파쇄/가장\n* 37.0-40.0m: 1set 절리 70 3set 절리 파쇄/가장\n* 38.2-38.5m: 수직절리\n* 40.0-43.0m: 1set 절리 60 3set절리 파쇄/가장\n* 43.0-46.0m: 1set 절리 10, 30, 70 3set절리 파쇄/가장 코어 총상\n- 수직절리:44.0-44.3m\n* 46.0-49.0m: 1set 10, 30, 60 3set 절리 파쇄/가장 코어 총상\n- 파쇄대:46.5-46.8m\n* 49.0-52.0m: 1set 60 3set절리 파쇄/가장 코어 총상\n* 52.0-55.0m: 1set 10, 30, 60 3set 절리 파쇄/가장\n* 55.0-58.0m: 2set절리 60 3set절리+Random 파쇄/가장\n* 56.0-57.0m: 파쇄 및 core loss\n* 58.0-61.0m: 1set 10, 60 3set 절리 파쇄/가장 암편상 회복\n* 61.0-64.0m: 1set 10, 60 3set절리+Random 파쇄/가장\n* 64.0-67.0m: 10, 30, 60 2set절리 파쇄/가장\n* 67.0-70.0m: 1set 10, 30, 60 3set절리+Random 파쇄/가장\n- 68.2-68.3m 파쇄대\n* 심도 70.00 M 에서 시추종료"
+        }
+      ],
+      "spt_records": [
+        {
+          "depth": 2.0,
+          "n_value": 6,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 3.0,
+          "n_value": 11,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 4.0,
+          "n_value": 30,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 5.0,
+          "n_value": 34,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 6.0,
+          "n_value": 47,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 7.0,
+          "n_value": 50,
+          "penetration_cm": 15,
+          "is_refusal": true,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 8.0,
+          "n_value": 50,
+          "penetration_cm": 18,
+          "is_refusal": true,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 9.0,
+          "n_value": 50,
+          "penetration_cm": 15,
+          "is_refusal": true,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 10.0,
+          "n_value": 50,
+          "penetration_cm": 14,
+          "is_refusal": true,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 11.0,
+          "n_value": 50,
+          "penetration_cm": 15,
+          "is_refusal": true,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 12.0,
+          "n_value": 50,
+          "penetration_cm": 14,
+          "is_refusal": true,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 13.0,
+          "n_value": 50,
+          "penetration_cm": 4,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 14.0,
+          "n_value": 50,
+          "penetration_cm": 4,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 15.0,
+          "n_value": 50,
+          "penetration_cm": 3,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 16.0,
+          "n_value": 50,
+          "penetration_cm": 4,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 17.0,
+          "n_value": 50,
+          "penetration_cm": 3,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 18.0,
+          "n_value": 50,
+          "penetration_cm": 2,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 19.0,
+          "n_value": 50,
+          "penetration_cm": 2,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 20.0,
+          "n_value": 50,
+          "penetration_cm": 2,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        },
+        {
+          "depth": 21.0,
+          "n_value": 50,
+          "penetration_cm": 2,
+          "is_refusal": true,
+          "layer_name": "풍화암"
+        }
+      ],
+      "rock_core_records": [
+        {
+          "depth_from": 22.0,
+          "depth_to": 25.0,
+          "tcr_percent": 100,
+          "rqd_percent": 89,
+          "joint_sets": null,
+          "fracture_zone": "23.0-25.0m",
+          "remarks": "코어 총상"
+        },
+        {
+          "depth_from": 25.0,
+          "depth_to": 28.0,
+          "tcr_percent": 100,
+          "rqd_percent": 83,
+          "joint_sets": null,
+          "fracture_zone": "26.0-28.0m",
+          "remarks": "코어 총상"
+        },
+        {
+          "depth_from": 28.0,
+          "depth_to": 31.0,
+          "tcr_percent": 90,
+          "rqd_percent": 81,
+          "joint_sets": null,
+          "fracture_zone": "28.0-28.5m",
+          "remarks": "oss"
+        },
+        {
+          "depth_from": 31.0,
+          "depth_to": 34.0,
+          "tcr_percent": 95,
+          "rqd_percent": 59,
+          "joint_sets": null,
+          "fracture_zone": "31.8m",
+          "remarks": "파쇄 및 core loss"
+        },
+        {
+          "depth_from": 34.0,
+          "depth_to": 37.0,
+          "tcr_percent": 100,
+          "rqd_percent": 100,
+          "joint_sets": null,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 37.0,
+          "depth_to": 40.0,
+          "tcr_percent": 100,
+          "rqd_percent": 95,
+          "joint_sets": null,
+          "fracture_zone": "38.2-38.5m",
+          "remarks": "수직절리"
+        },
+        {
+          "depth_from": 40.0,
+          "depth_to": 43.0,
+          "tcr_percent": 100,
+          "rqd_percent": 94,
+          "joint_sets": null,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 43.0,
+          "depth_to": 46.0,
+          "tcr_percent": 100,
+          "rqd_percent": 82,
+          "joint_sets": null,
+          "fracture_zone": "44.0-44.3m",
+          "remarks": "수직절리, 코어 총상"
+        },
+        {
+          "depth_from": 46.0,
+          "depth_to": 49.0,
+          "tcr_percent": 100,
+          "rqd_percent": 84,
+          "joint_sets": null,
+          "fracture_zone": "46.5-46.8m",
+          "remarks": "코어 총상"
+        },
+        {
+          "depth_from": 49.0,
+          "depth_to": 52.0,
+          "tcr_percent": 100,
+          "rqd_percent": 95,
+          "joint_sets": null,
+          "fracture_zone": null,
+          "remarks": "코어 총상"
+        },
+        {
+          "depth_from": 52.0,
+          "depth_to": 55.0,
+          "tcr_percent": 100,
+          "rqd_percent": 91,
+          "joint_sets": null,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 55.0,
+          "depth_to": 58.0,
+          "tcr_percent": 93,
+          "rqd_percent": 62,
+          "joint_sets": null,
+          "fracture_zone": "56.0-57.0m",
+          "remarks": "파쇄 및 core loss"
+        },
+        {
+          "depth_from": 58.0,
+          "depth_to": 61.0,
+          "tcr_percent": 100,
+          "rqd_percent": 96,
+          "joint_sets": null,
+          "fracture_zone": null,
+          "remarks": "암편상 회복"
+        },
+        {
+          "depth_from": 61.0,
+          "depth_to": 64.0,
+          "tcr_percent": 100,
+          "rqd_percent": 97,
+          "joint_sets": null,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 64.0,
+          "depth_to": 67.0,
+          "tcr_percent": 100,
+          "rqd_percent": 100,
+          "joint_sets": null,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 67.0,
+          "depth_to": 70.0,
+          "tcr_percent": 100,
+          "rqd_percent": 95,
+          "joint_sets": null,
+          "fracture_zone": "68.2-68.3m",
+          "remarks": null
+        }
+      ],
+      "tunnel_info": {
+        "tunnel_start_depth": 22.0,
+        "tunnel_start_elevation": 120.878,
+        "tunnel_end_depth": 55.0
+      }
+    },
+    "success": true
+  },
+  {
+    "model": "Claude Sonnet 4",
+    "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CZM8EpcVtCt1sDuvaRAAV'}"
+  },
+  {
+    "model": "GPT-4o",
+    "elapsed_sec": 37.2,
+    "parsed_json": {
+      "basic_info": {
+        "borehole_id": "NTB-24",
+        "project_name": "수도권광역급행철도 B노선 건설사업(용산~상봉) 제4공구",
+        "x_coord": 556508.6,
+        "y_coord": 209027.76,
+        "ground_elevation": 142.5,
+        "total_depth": 70.0,
+        "groundwater_level": 13.2,
+        "drill_date": "2023-08-31",
+        "drill_method": "POWER4500SD",
+        "drill_diameter": "NX"
+      },
+      "layers": [
+        {
+          "layer_name": "매립층",
+          "soil_classification": "SM",
+          "depth_from": 0.0,
+          "depth_to": 2.0,
+          "thickness": 2.0,
+          "color": "회갈색",
+          "description": "자갈섞인 실트질 모래, 양호상태"
+        },
+        {
+          "layer_name": "풍화토",
+          "soil_classification": "SM",
+          "depth_from": 2.0,
+          "depth_to": 13.0,
+          "thickness": 11.0,
+          "color": "황갈색",
+          "description": "실트질 모래, 양호상태"
+        },
+        {
+          "layer_name": "풍화암",
+          "soil_classification": "WR",
+          "depth_from": 13.0,
+          "depth_to": 22.0,
+          "thickness": 9.0,
+          "color": "황갈색",
+          "description": "풍화암, 양호상태"
+        },
+        {
+          "layer_name": "풍화암",
+          "soil_classification": "WR",
+          "depth_from": 22.0,
+          "depth_to": 70.0,
+          "thickness": 48.0,
+          "color": "황갈색",
+          "description": "풍화암, 양호상태"
+        }
+      ],
+      "spt_records": [
+        {
+          "depth": 2.0,
+          "n_value": 6,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 4.0,
+          "n_value": 7,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 6.0,
+          "n_value": 8,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 8.0,
+          "n_value": 9,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 10.0,
+          "n_value": 10,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        },
+        {
+          "depth": 12.0,
+          "n_value": 11,
+          "penetration_cm": 30,
+          "is_refusal": false,
+          "layer_name": "풍화토"
+        }
+      ],
+      "rock_core_records": [
+        {
+          "depth_from": 22.0,
+          "depth_to": 25.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 83.0,
+          "joint_sets": 2,
+          "fracture_zone": null,
+          "remarks": "모래층"
+        },
+        {
+          "depth_from": 25.0,
+          "depth_to": 28.0,
+          "tcr_percent": 90.0,
+          "rqd_percent": 81.0,
+          "joint_sets": 2,
+          "fracture_zone": "25.0-25.1m: 파쇄대",
+          "remarks": null
+        },
+        {
+          "depth_from": 28.0,
+          "depth_to": 31.0,
+          "tcr_percent": 95.0,
+          "rqd_percent": 59.0,
+          "joint_sets": 2,
+          "fracture_zone": null,
+          "remarks": "파쇄 및 core loss"
+        },
+        {
+          "depth_from": 31.0,
+          "depth_to": 34.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 100.0,
+          "joint_sets": 1,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 34.0,
+          "depth_to": 37.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 95.0,
+          "joint_sets": 1,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 37.0,
+          "depth_to": 40.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 95.0,
+          "joint_sets": 1,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 40.0,
+          "depth_to": 43.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 94.0,
+          "joint_sets": 1,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 43.0,
+          "depth_to": 46.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 82.0,
+          "joint_sets": 1,
+          "fracture_zone": "44.0-44.3m: 파쇄대",
+          "remarks": null
+        },
+        {
+          "depth_from": 46.0,
+          "depth_to": 49.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 84.0,
+          "joint_sets": 2,
+          "fracture_zone": "45.6-46.6m: 파쇄대",
+          "remarks": null
+        },
+        {
+          "depth_from": 49.0,
+          "depth_to": 52.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 84.0,
+          "joint_sets": 2,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 52.0,
+          "depth_to": 55.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 95.0,
+          "joint_sets": 1,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 55.0,
+          "depth_to": 58.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 91.0,
+          "joint_sets": 2,
+          "fracture_zone": "56.0-57.0m: 파쇄 및 core loss",
+          "remarks": null
+        },
+        {
+          "depth_from": 58.0,
+          "depth_to": 61.0,
+          "tcr_percent": 93.0,
+          "rqd_percent": 62.0,
+          "joint_sets": 2,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 61.0,
+          "depth_to": 64.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 96.0,
+          "joint_sets": 1,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 64.0,
+          "depth_to": 67.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 100.0,
+          "joint_sets": 1,
+          "fracture_zone": null,
+          "remarks": null
+        },
+        {
+          "depth_from": 67.0,
+          "depth_to": 70.0,
+          "tcr_percent": 100.0,
+          "rqd_percent": 95.0,
+          "joint_sets": 1,
+          "fracture_zone": "68.2-68.3m: 파쇄대",
+          "remarks": null
+        }
+      ],
+      "tunnel_info": {
+        "tunnel_start_depth": 21.871,
+        "tunnel_start_elevation": 120.878,
+        "tunnel_end_depth": 55.0
+      }
+    },
+    "success": true,
+    "input_tokens": 4936,
+    "output_tokens": 1980
+  }
+]

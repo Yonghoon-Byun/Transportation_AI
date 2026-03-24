@@ -1,0 +1,1171 @@
+```json
+{
+  "basic_info": {
+    "borehole_id": "NT0-24",
+    "project_name": "수도권광역급행철도 B노선 건설사업(용산-상봉) 제4공구",
+    "x_coord": 556598.60,
+    "y_coord": 187876.76,
+    "ground_elevation": 142.50,
+    "total_depth": 70.00,
+    "groundwater_level": 13.20,
+    "drill_date": "2023-08-31",
+    "drill_method": "수세식 시추",
+    "drill_diameter": "GL(-) 2.50 M"
+  },
+  "layers": [
+    {
+      "layer_name": "매립층",
+      "soil_classification": "SM",
+      "depth_from": 0.0,
+      "depth_to": 2.0,
+      "thickness": 2.0,
+      "color": "암갈색",
+      "description": "심도 : 0.00 ~ 2.00 m - 모래, 자갈, 실트질 모래 - 암갈색 - 느슨한 상태 - N=10/30, 10/30, 10/30 - 0.0~2.0m: 지장물 확인 인력터파기"
+    },
+    {
+      "layer_name": "풍화암",
+      "soil_classification": "SM",
+      "depth_from": 2.0,
+      "depth_to": 22.0,
+      "thickness": 20.0,
+      "color": "회백색",
+      "description": "심도 : 2.00 ~ 13.00 m - 실트질 모래 - 회백색 - 느슨한 상태; 심도 : 13.00 ~ 22.00 m - 암회색의 풍화암 - 파쇄가 많고, 실트질 모래로 충진됨 - 매우조밀"
+    },
+    {
+      "layer_name": "연암",
+      "soil_classification": "HR",
+      "depth_from": 22.0,
+      "depth_to": 70.0,
+      "thickness": 48.0,
+      "color": "암회색",
+      "description": "심도 : 22.00 ~ 70.00 m - 연암(암회색) - 파쇄가 많고, 실트질 모래로 충진됨 - 매우조밀"
+    }
+  ],
+  "spt_records": [
+    {
+      "depth": 0.5,
+      "n_value": 10,
+      "penetration_cm": 10,
+      "is_refusal": false,
+      "layer_name": "매립층"
+    },
+    {
+      "depth": 1.0,
+      "n_value": 10,
+      "penetration_cm": 10,
+      "is_refusal": false,
+      "layer_name": "매립층"
+    },
+    {
+      "depth": 1.5,
+      "n_value": 10,
+      "penetration_cm": 10,
+      "is_refusal": false,
+      "layer_name": "매립층"
+    },
+    {
+      "depth": 2.0,
+      "n_value": 10,
+      "penetration_cm": 10,
+      "is_refusal": false,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 2.5,
+      "n_value": 10,
+      "penetration_cm": 10,
+      "is_refusal": false,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 3.0,
+      "n_value": 30,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 3.5,
+      "n_value": 34,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 4.0,
+      "n_value": 47,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 4.5,
+      "n_value": 50,
+      "penetration_cm": 15,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 5.0,
+      "n_value": 50,
+      "penetration_cm": 18,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 5.5,
+      "n_value": 50,
+      "penetration_cm": 15,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 6.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 6.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 7.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 7.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 8.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 8.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 9.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 9.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 10.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 10.5,
+      "n_value": 50,
+      "penetration_cm": 15,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 11.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 11.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 12.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 12.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 13.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 13.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 14.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 14.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 15.0,
+      "n_value": 50,
+      "penetration_cm": 3,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 15.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 16.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 16.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 17.0,
+      "n_value": 50,
+      "penetration_cm": 3,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 17.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 18.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 18.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 19.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 19.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 20.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 20.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 21.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 21.5,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화암"
+    },
+    {
+      "depth": 22.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 22.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 23.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 23.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 24.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 24.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 25.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 25.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 26.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 26.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 27.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 27.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 28.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 28.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 29.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 29.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 30.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 30.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 31.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 31.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 32.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 32.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 33.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 33.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 34.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 34.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 35.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 35.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 36.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 36.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 37.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 37.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 38.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 38.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 39.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 39.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 40.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 40.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 41.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 41.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 42.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 42.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 43.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 43.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 44.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 44.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 45.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 45.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 46.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 46.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 47.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 47.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 48.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 48.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 49.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 49.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 50.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 50.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 51.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 51.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 52.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 52.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 53.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 53.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 54.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 54.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 55.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 55.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 56.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 56.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 57.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 57.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 58.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 58.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 59.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 59.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 60.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 60.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 61.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 61.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 62.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 62.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 63.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 63.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 64.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 64.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 65.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 65.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 66.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 66.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 67.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 67.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 68.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 68.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 69.0,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    },
+    {
+      "depth": 69.5,
+      "n_value": 50,
+      "penetration_cm": 2,
+      "is_refusal": true,
+      "layer_name": "연암"
+    }
+  ],
+  "rock_core_records": [
+    {
+      "depth_from": 22.0,
+      "depth_to": 25.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 89.0,
+      "joint_sets": 2,
+      "fracture_zone": "22.0~25.0m",
+      "remarks": "심도 : 22.00 ~ 25.00 m - 연암(암회색) - 파쇄가 많고, 실트질 모래로 충진됨 - 매우조밀"
+    },
+    {
+      "depth_from": 25.0,
+      "depth_to": 28.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 83.0,
+      "joint_sets": 2,
+      "fracture_zone": null,
+      "remarks": "심도 : 25.00 ~ 28.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 28.0,
+      "depth_to": 31.0,
+      "tcr_percent": 90.0,
+      "rqd_percent": 81.0,
+      "joint_sets": 2,
+      "fracture_zone": "28.0~31.0m",
+      "remarks": "심도 : 28.00 ~ 31.00 m - 1set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 31.0,
+      "depth_to": 34.0,
+      "tcr_percent": 95.0,
+      "rqd_percent": 59.0,
+      "joint_sets": 2,
+      "fracture_zone": "31.0~34.0m",
+      "remarks": "심도 : 31.00 ~ 34.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 34.0,
+      "depth_to": 37.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 100.0,
+      "joint_sets": 1,
+      "fracture_zone": "34.0~37.0m",
+      "remarks": "심도 : 34.00 ~ 37.00 m - 1set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 37.0,
+      "depth_to": 40.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 95.0,
+      "joint_sets": 1,
+      "fracture_zone": "37.0~40.0m",
+      "remarks": "심도 : 37.00 ~ 40.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 40.0,
+      "depth_to": 43.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 94.0,
+      "joint_sets": 1,
+      "fracture_zone": "40.0~43.0m",
+      "remarks": "심도 : 40.00 ~ 43.00 m - 1set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 43.0,
+      "depth_to": 46.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 82.0,
+      "joint_sets": 1,
+      "fracture_zone": "43.0~46.0m",
+      "remarks": "심도 : 43.00 ~ 46.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 46.0,
+      "depth_to": 49.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 84.0,
+      "joint_sets": 2,
+      "fracture_zone": "46.0~49.0m",
+      "remarks": "심도 : 46.00 ~ 49.00 m - 1set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 49.0,
+      "depth_to": 52.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 95.0,
+      "joint_sets": 1,
+      "fracture_zone": "49.0~52.0m",
+      "remarks": "심도 : 49.00 ~ 52.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 52.0,
+      "depth_to": 55.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 91.0,
+      "joint_sets": 1,
+      "fracture_zone": "52.0~55.0m",
+      "remarks": "심도 : 52.00 ~ 55.00 m - 1set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 55.0,
+      "depth_to": 58.0,
+      "tcr_percent": 93.0,
+      "rqd_percent": 62.0,
+      "joint_sets": 2,
+      "fracture_zone": "55.0~58.0m",
+      "remarks": "심도 : 55.00 ~ 58.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 58.0,
+      "depth_to": 61.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 96.0,
+      "joint_sets": 1,
+      "fracture_zone": "58.0~61.0m",
+      "remarks": "심도 : 58.00 ~ 61.00 m - 1set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 61.0,
+      "depth_to": 64.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 97.0,
+      "joint_sets": 1,
+      "fracture_zone": "61.0~64.0m",
+      "remarks": "심도 : 61.00 ~ 64.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 64.0,
+      "depth_to": 67.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 100.0,
+      "joint_sets": 1,
+      "fracture_zone": "64.0~67.0m",
+      "remarks": "심도 : 64.00 ~ 67.00 m - 1set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    },
+    {
+      "depth_from": 67.0,
+      "depth_to": 70.0,
+      "tcr_percent": 100.0,
+      "rqd_percent": 95.0,
+      "joint_sets": 1,
+      "fracture_zone": "67.0~70.0m",
+      "remarks": "심도 : 67.00 ~ 70.00 m - 2set 절리 (4Random) - 파쇄가 많고, 실트질 모래로 충진됨"
+    }
+  ],
+  "tunnel_info": {
+    "tunnel_start_depth": 21.871,
+    "tunnel_start_elevation": 120.878,
+    "tunnel_end_depth": 54.0
+  }
+}
+```

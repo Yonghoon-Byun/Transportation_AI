@@ -1,0 +1,233 @@
+```json
+{
+  "basic_info": {
+    "borehole_id": "NTB-24",
+    "project_name": "수도권광역급행철도 B노선 건설사업(용산-상봉) 제4공구",
+    "x_coord": 555056.60,
+    "y_coord": 189998.76,
+    "ground_elevation": 142.50,
+    "total_depth": 70.00,
+    "groundwater_level": 13.20,
+    "drill_date": "2023-08-31",
+    "drill_method": "수세식 시추",
+    "drill_diameter": null
+  },
+  "layers": [
+    {
+      "layer_name": "매립층",
+      "soil_classification": "SM",
+      "depth_from": 0.0,
+      "depth_to": 2.0,
+      "thickness": 2.0,
+      "color": "흑갈색",
+      "description": "심도 : 0.00 ~ 2.00 m\n- 자갈,모래,실트질 모래\n- 암편섞임\n- 불량한 상태\n- 0.0~2.0m: 지장물 확인 인력터파기"
+    },
+    {
+      "layer_name": "풍화토",
+      "soil_classification": "SM",
+      "depth_from": 2.0,
+      "depth_to": 13.0,
+      "thickness": 11.0,
+      "color": "황갈색",
+      "description": "심도 : 2.00 ~ 13.00 m\n- 실트질 모래\n- 황갈색\n- 불량한 상태\n- 2.0~13.0m: 점토질"
+    },
+    {
+      "layer_name": "풍화암",
+      "soil_classification": "WR",
+      "depth_from": 13.0,
+      "depth_to": 22.0,
+      "thickness": 9.0,
+      "color": "흑갈색",
+      "description": "심도 : 13.00 ~ 22.00 m\n- 암회색의 중립질 화강암으로\n- 풍화가 심하며, 실트질 모래로\n- 붕괴됨\n- 불량한 상태\n- 매우조밀"
+    },
+    {
+      "layer_name": "풍화암",
+      "soil_classification": "HR",
+      "depth_from": 22.0,
+      "depth_to": 31.0,
+      "thickness": 9.0,
+      "color": "암회색",
+      "description": "심도 : 22.00 ~ 31.00 m\n- 암회색의 중립질 화강암으로\n- 풍화가 심하며, 실트질 모래로\n- 붕괴됨\n- 불량한 상태\n- 매우조밀"
+    },
+    {
+      "layer_name": "풍화암",
+      "soil_classification": "HR",
+      "depth_from": 31.0,
+      "depth_to": 40.0,
+      "thickness": 9.0,
+      "color": "암회색",
+      "description": "심도 : 31.00 ~ 40.00 m\n- 암회색의 중립질 화강암으로\n- 풍화가 심하며, 실트질 모래로\n- 붕괴됨\n- 불량한 상태\n- 매우조밀"
+    },
+    {
+      "layer_name": "풍화암",
+      "soil_classification": "HR",
+      "depth_from": 40.0,
+      "depth_to": 50.0,
+      "thickness": 10.0,
+      "color": "암회색",
+      "description": "심도 : 40.00 ~ 50.00 m\n- 암회색의 중립질 화강암으로\n- 풍화가 심하며, 실트질 모래로\n- 붕괴됨\n- 불량한 상태\n- 매우조밀"
+    },
+    {
+      "layer_name": "풍화암",
+      "soil_classification": "HR",
+      "depth_from": 50.0,
+      "depth_to": 60.0,
+      "thickness": 10.0,
+      "color": "암회색",
+      "description": "심도 : 50.00 ~ 60.00 m\n- 암회색의 중립질 화강암으로\n- 풍화가 심하며, 실트질 모래로\n- 붕괴됨\n- 불량한 상태\n- 매우조밀"
+    },
+    {
+      "layer_name": "풍화암",
+      "soil_classification": "HR",
+      "depth_from": 60.0,
+      "depth_to": 70.0,
+      "thickness": 10.0,
+      "color": "암회색",
+      "description": "심도 : 60.00 ~ 70.00 m\n- 암회색의 중립질 화강암으로\n- 풍화가 심하며, 실트질 모래로\n- 붕괴됨\n- 불량한 상태\n- 매우조밀"
+    }
+  ],
+  "spt_records": [
+    {
+      "depth": 0.5,
+      "n_value": 2,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "매립층"
+    },
+    {
+      "depth": 1.0,
+      "n_value": 3,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "매립층"
+    },
+    {
+      "depth": 1.5,
+      "n_value": 4,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "매립층"
+    },
+    {
+      "depth": 2.0,
+      "n_value": 6,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 2.5,
+      "n_value": 11,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 3.0,
+      "n_value": 15,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 3.5,
+      "n_value": 20,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 4.0,
+      "n_value": 25,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 4.5,
+      "n_value": 30,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 5.0,
+      "n_value": 34,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 5.5,
+      "n_value": 38,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 6.0,
+      "n_value": 42,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 6.5,
+      "n_value": 47,
+      "penetration_cm": 30,
+      "is_refusal": false,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 7.0,
+      "n_value": 50,
+      "penetration_cm": 15,
+      "is_refusal": true,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 7.5,
+      "n_value": 50,
+      "penetration_cm": 15,
+      "is_refusal": true,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 8.0,
+      "n_value": 50,
+      "penetration_cm": 18,
+      "is_refusal": true,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 8.5,
+      "n_value": 50,
+      "penetration_cm": 18,
+      "is_refusal": true,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 9.0,
+      "n_value": 50,
+      "penetration_cm": 19,
+      "is_refusal": true,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 9.5,
+      "n_value": 50,
+      "penetration_cm": 19,
+      "is_refusal": true,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 10.0,
+      "n_value": 50,
+      "penetration_cm": 14,
+      "is_refusal": true,
+      "layer_name": "풍화토"
+    },
+    {
+      "depth": 10.5,
+      "n_value": 50,
+      "penetration_cm": 1

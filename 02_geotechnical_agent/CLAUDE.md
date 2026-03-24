@@ -21,19 +21,20 @@
 [원천 데이터 (PDF)]
         |
         v
-[1. 구조 분석 및 OCR]          src/parser/
+[1. LLM Vision 기반 데이터 추출]   src/parser/
+        |   ※ 기존 OCR 대신 LLM Vision API 채택
+        |   ※ 텍스트+표+그래픽+색상 마킹 동시 인식
+        v
+[2. 데이터 정형화]                  src/parser/ + src/matcher/
         |
         v
-[2. 데이터 정형화]              src/parser/ + src/matcher/
+[3. 지반정수 산정 알고리즘]         src/analyzer/ + src/classifier/
         |
         v
-[3. 지반정수 산정 알고리즘]     src/analyzer/ + src/classifier/
+[4. 이상치 탐지 및 검증]            src/analyzer/
         |
         v
-[4. 이상치 탐지 및 검증]        src/analyzer/
-        |
-        v
-[5. 최종 성과품 생성]           src/reporter/
+[5. 최종 성과품 생성]               src/reporter/
    - 정형화된 엑셀 데이터
    - 물성치 산정 결과
    - 분석 그래프 (e-log P, 전단강도 등)
@@ -148,14 +149,32 @@ PDF 형식 주상도에서 지반 데이터를 구조적으로 추출.
 |---|---|
 | Python | 3.11+ |
 | AI/Agent | Claude API (Anthropic), anthropic SDK |
-| PDF 파싱 | pdfplumber, tabula-py |
-| OCR | pytesseract 또는 Claude Vision |
+| PDF→이미지 변환 | PyMuPDF (fitz) |
+| 데이터 추출 | LLM Vision API (기존 OCR 대신 채택) |
 | 데이터 처리 | pandas, numpy |
 | 지반 분류 | scikit-learn |
 | 엑셀 출력 | openpyxl |
 | 문서 생성 | Jinja2, python-docx |
 | 그래프 | matplotlib |
 | 테스트 | pytest |
+
+---
+
+## LLM Vision 모델 비교 결과 (2026-03-24 실증)
+
+NTB-24 시추주상도(4페이지)를 4개 LLM으로 추출 비교한 결과:
+
+| 모델 | 종합 정확도 | 페이지당 비용 | 비고 |
+|---|---|---|---|
+| **Claude Opus 4.6** | **96%** | ~166원 | 환각 없음, N치·반발·파쇄대 정밀 |
+| GPT-4o | 57% | ~15원 | 기본정보 정확, N치 날조 심각 |
+| Gemini 2.5 Pro | 52% | ~19원 | 지층 정확, 기본정보 OCR 오류 |
+| Gemini 2.5 Flash | 48% | ~5원 | 재현성 문제로 실무 부적합 |
+
+- **SPT N치**: Claude Opus만 정확 추출 (타 모델 환각/날조)
+- **TCR/RQD**: 모든 모델 ~50~75% (원본 이미지 컬럼 구조 복잡)
+- **상세**: `docs/모델별_추출결과_비교.md`, `docs/추출원본_*.md`
+- **비교 스크립트**: `src/parser/compare_models.py`
 
 ---
 

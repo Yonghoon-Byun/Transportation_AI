@@ -52,3 +52,4 @@ Thumbs.db
 
 # OMC
 .omc/
+02_geotechnical_agent/.env
