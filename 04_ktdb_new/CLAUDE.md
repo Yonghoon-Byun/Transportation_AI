@@ -63,13 +63,15 @@ KTDB(국가교통DB) 데이터를 Google Sheets에서 읽어와 Gemini AI로 자
  시트 선택   [AI 라우팅] ← Gemini (시트 자동 선택)
        |       |
    [데이터 로드 + 전처리]
+   · 콤마 제거 + 숫자 변환
+   · ZONE 탭 조인 (OD→시도/시군구 매핑)
    · 지역 필터링
-   · 숫자 변환
    · 연도 보간
+   · 대용량 집계 (500행 초과 시)
        |
    [Gemini 분석]
    · SYSTEM_PROMPT 기반
-   · 데이터 150행 샘플 전달
+   · 데이터 최대 250행 전달
        |
    [결과 출력]
    · 요약 텍스트 + CSV 표
@@ -82,6 +84,12 @@ KTDB(국가교통DB) 데이터를 Google Sheets에서 읽어와 Gemini AI로 자
 ├── CLAUDE.md              # 프로젝트 문서 (본 파일)
 ├── streamlit_app.py       # 메인 앱 (단일 파일)
 ├── requirements.txt       # Python 의존성
+├── docs/
+│   ├── SHEETS_SCHEMA_GUIDE.md              # DB 구축 담당자용 스키마 가이드
+│   ├── 전국_지역간_사회경제지표.xlsx        # 원본 사회경제지표 데이터
+│   ├── 2024-OD-PSN-OBJ-00_전국권.xlsx      # 원본 목적OD 데이터
+│   ├── 2024-OD-PSN-MOD-10_전국권.xlsx      # 원본 주수단OD 데이터
+│   └── 2024-OD-PSN-MOD-20_전국권.xlsx      # 원본 접근수단OD 데이터
 └── .streamlit/
     └── secrets.toml       # API 키, 시트 URL, GCP 서비스 계정 (gitignore 대상)
 ```
@@ -145,6 +153,41 @@ streamlit run streamlit_app.py
 - 데이터 단위(명, 통행/일)를 항상 표에 명시
 - AI 프롬프트에서 실제 데이터에 없는 수치를 생성하지 않도록 제어
 - 보간 연도는 `*(보간)` 주석 표기
+
+## 변경 이력
+
+### 2026-04-16: 데이터 스키마 검토 및 앱 구조 개선
+
+#### 발견된 문제 및 수정 사항
+
+| # | 문제 | 원인 | 해결 |
+|---|------|------|------|
+| 1 | 사회경제지표 6개 탭에 연도 데이터 없음 | Google Sheets 업로드 시 SIDO/SIGU/ZONE 3컬럼만 올라감 (연도 컬럼 D~J열 누락) | `docs/SHEETS_SCHEMA_GUIDE.md` 작성, XLSX에서 재업로드 필요 |
+| 2 | OD 숫자 파싱 실패 | 천단위 콤마(`"19,800"`)가 `pd.to_numeric(errors="ignore")`에서 문자열로 남음 | `preprocess()`에 `str.replace(",","")` 추가 |
+| 3 | OD 데이터 지역 필터 불가 | OD 탭에 ORGN/DEST(존번호)만 있고 SIDO/SIGU 없음 | `get_zone_mapping()` 신규 추가, ZONE 탭 조인으로 존번호→시도/시군구 매핑 |
+| 4 | 62,500행 중 150행만 AI 전달 | `df.head(150)` 고정 | 지역 필터 후 500행 초과 시 시도/시군구별 합계 집계, AI 전달을 250행으로 확대 |
+| 5 | ai_route 오분류 가능 | Gemini에 탭 코드(PUR_2023 등)만 전달 | 탭 코드+한글 설명+카테고리 힌트 함께 전달 |
+| 6 | 빈 데이터 방어 없음 | 수치 컬럼 없어도 무응답만 발생 | `load_integrated()`에 수치 컬럼 0개 시 명확한 에러 메시지 |
+| 7 | 배포 시 import 실패 가능 | `requirements.txt`에 gspread, google-auth 미기재 | 의존성 추가 |
+
+#### 신규/수정 파일
+
+- `streamlit_app.py` — 위 수정사항 반영
+- `requirements.txt` — `gspread>=5.0.0`, `google-auth>=2.0.0` 추가
+- `docs/SHEETS_SCHEMA_GUIDE.md` — **신규** DB 구축 담당자용 Google Sheets 스키마 가이드
+
+#### 원본 XLSX 데이터 파일 (docs/ 디렉토리)
+
+| 파일 | 대상 시트 | 비고 |
+|------|----------|------|
+| `전국_지역간_사회경제지표.xlsx` | SHEET_URL_SOCIO | 8시트 (ZONE, POP_TOT~WORK_TOT, NAME_CODE) |
+| `2024-OD-PSN-OBJ-00_전국권.xlsx` | SHEET_URL_OBJ_OD | 7시트 (PUR_2023~PUR_2050), 각 62,500행 |
+| `2024-OD-PSN-MOD-10_전국권.xlsx` | SHEET_URL_MAIN_OD | 7시트 (MOD_2023~MOD_2050), 각 62,500행 |
+| `2024-OD-PSN-MOD-20_전국권.xlsx` | SHEET_URL_ACC_OD | 1시트 (ATTMOD_2023), 62,500행 |
+
+#### 미해결 사항
+
+- **사회경제지표 시트 데이터 업로드** — XLSX에서 Google Sheets로 연도 데이터를 채워야 함 (`docs/SHEETS_SCHEMA_GUIDE.md` 참조)
 
 ## 01_ktdb와의 관계
 | 구분 | 01_ktdb (이전) | 04_ktdb_new (현재) |
