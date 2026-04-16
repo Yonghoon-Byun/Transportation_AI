@@ -287,8 +287,13 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     for col in df.columns:
         if col not in ("SIDO", "SIGU"):
+            original = df[col].copy()
             df[col] = df[col].astype(str).str.replace(",", "", regex=False)
-            df[col] = pd.to_numeric(df[col], errors="ignore")
+            converted = pd.to_numeric(df[col], errors="coerce")
+            if converted.notna().any():
+                df[col] = converted
+            else:
+                df[col] = original
 
     # OD 데이터: ORGN/DEST만 있고 SIDO/SIGU 없음 → ZONE 탭 조인으로 지역 매핑
     if "ORGN" in df.columns and "SIDO" not in df.columns:
