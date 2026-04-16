@@ -1,13 +1,34 @@
 {
   "permissions": {
     "allow": [
-      "mcp__plugin_oh-my-claudecode_t__python_repl",
-      "Bash(mkdir -p \"L:/home/onghoon_yun/projects/transportation_ai/Transportation_AI-1/.omc/plans\")",
-      "Bash(\"L:/home/onghoon_yun/projects/transportation_ai/Transportation_AI-1/.omc/ralplan-state.json\")",
+      "Bash",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
       "WebSearch",
-      "Bash(python3:*)",
-      "Bash(pip install:*)",
-      "Bash(git config:*)"
+      "WebFetch",
+      "Agent",
+      "NotebookEdit",
+      "Skill",
+      "mcp__*",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskUpdate",
+      "TaskStop",
+      "TaskOutput",
+      "CronCreate",
+      "CronDelete",
+      "CronList",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "EnterWorktree",
+      "ExitWorktree",
+      "RemoteTrigger",
+      "ToolSearch",
+      "AskUserQuestion"
     ]
   }
 }
